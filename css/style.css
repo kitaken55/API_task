@@ -1,0 +1,96 @@
+body {
+    background: skyblue;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 50px;
+    color:white;
+    letter-spacing: 5px;
+}
+
+.box {
+    margin-top: 20px;
+    text-align: center;
+    color:white;
+}
+
+.box label {
+    letter-spacing: 2px;
+}
+
+.box input {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    border: 1px solid gainsboro;
+    outline: 0;
+    width: 20%;
+    height: 20px;
+    color: gray;
+}
+
+.login_btn_box {
+    text-align: right;
+}
+
+.move_login {
+    color: white;
+    text-decoration: none;
+}
+
+.move_login:hover {
+    text-decoration: underline;
+}
+
+.sign_up, .login_btn {
+    display: block;
+    margin: 0 auto;
+    margin-top: 50px;
+    border-radius: 20px;
+    background-color: white;
+    width: 100px;
+    padding: 5px;
+    outline: 0;
+    color: gray;
+    cursor: pointer;
+}
+
+.sign_up:hover, .login_btn:hover {
+    background-color: gainsboro;
+    transition: background-color 1s;
+    color: white;
+}
+
+.login_btn {
+    display: block;
+    margin: 0 auto;
+    margin-top: 50px;
+    border-radius: 20px;
+    background-color: white;
+    width: 100px;
+    padding: 5px;
+    outline: 0;
+    color: gray;
+}
+
+.logout_btn + p {
+    display: inline;
+}
+
+.login_btn_box a {
+    margin-right: 10px;
+}
+
+.logout_btn {
+    display: block;
+    margin: 0 auto;
+    border-radius: 20px;
+    background-color: white;
+    width: 50px;
+    padding: 5px;
+    outline: 0;
+    color: gray;
+    text-decoration: none;
+}
