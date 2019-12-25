@@ -364,12 +364,3 @@ function all_timeline() {
 function back_users() {
     window.location.href = 'users.html';
 }
-
-
-
-let timeLine = "";
-json.forEach(element => {
-    timeLine += `<li>${element.user["name"]}さん(${element.user["id"]}): ${element.text}</li>\n`;
-});
-document.querySelector('#all_users').innerHTML = timeLine;
-
