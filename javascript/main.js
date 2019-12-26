@@ -175,8 +175,7 @@ function del() {
     }
 
     //宣言
-    const myId = localStorage.getItem('id');
-    const urlEdit = `https://teachapi.herokuapp.com/users/${myId}`;
+    const urlEdit = `https://teachapi.herokuapp.com/users/${localStorage.id}`;
 
     //ヘッダ情報
     const myToken = localStorage.getItem('token');
@@ -210,8 +209,7 @@ function new_text() {
     const text = document.querySelector("#text").value;
 
     //ヘッダ情報
-    const myToken = localStorage.getItem('token');
-    myHeaders.append("Authorization", `Bearer ${myToken}`);
+    myHeaders.append("Authorization", `Bearer ${localStorage.token}`);
 
     const BodyData = {
         "post_params": {
@@ -276,8 +274,7 @@ function edit_text() {
     const urlEditText = `https://teachapi.herokuapp.com/posts/${edit_text_id}`;
 
     //ヘッダ情報
-    const myToken = localStorage.getItem('token');
-    myHeaders.append("Authorization", `Bearer ${myToken}`);
+    myHeaders.append("Authorization", `Bearer ${localStorage.token}`);
 
     const BodyData = {
         "post_params": {
