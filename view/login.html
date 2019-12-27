@@ -14,7 +14,7 @@
 
     <div class="box">
         <label>めーるあどれす</label>
-        <input id="user_email" type="text" value="a">
+        <input id="user_email" type="text">
         <label>ぱすわーど</label>
         <input id="user_password" type="password" value="a">
         <label>ぱすわーど(もういちど)</label>
@@ -32,7 +32,7 @@
 
     <script src="../javascript/main.js"></script>
     <script>
-        if (localStorage.token) {
+        if (localStorage.token !== undefined && localStorage) {
             console.log("ログイン中です");
             // document.querySelector("#logout").innerHTML = '<p>ログインなう</p>'
         }

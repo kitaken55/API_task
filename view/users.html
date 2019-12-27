@@ -13,24 +13,16 @@
 
     <h1>ユーザーいちらん</h1>
 
-    <div>
+    <div class="box">
         <ul id="users"></ul>
     </div>
 
-    <a href="./edit_user.html">edit画面</a>
-    <a href="./delete.html">delete画面</a>
-    <a href="./new_text.html">text画面</a>
-    <a href="./timeline.html">timeline画面</a>
-    <a href="./del_text.html">textdelet画面</a>
-    <a href="./all_time_line.html">すべてのユーザー画面</a>
-
-
-    <a href="" onclick="logout();" class="logout_btn">logout</a>
+    <a class="sign_up" onclick="back_users()">もどる</a>
 
     <script src="../javascript/main.js"></script>
     <script>
         get_users();
-        console.log(localStorage);
+        // console.log(localStorage);
     </script>
 </body>
 

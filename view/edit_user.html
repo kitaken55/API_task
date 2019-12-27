@@ -14,15 +14,57 @@
 
     <div class="box">
         <label>なまえ</label>
-        <input id="user_name" type="text" value="a">
+        <input id="user_name" type="text">
         <label>じこしょうかい</label>
-        <input id="user_bio" type="text" value="a">
+        <input id="user_bio" type="text">
 
         <a class="sign_up" onclick="edit()">編集</a>
+
+        <hr>
+        <h1>○○さんのツイート</h1>
+        <div>
+            <ul id="timeline"></ul>
+        </div>
+
+        <hr>
+        <label>変更したいテキストid</label>
+        <input id="edit_text_id" type="text">
+        <label>↓更新内容記述</label>
+        <input id="edit_text" type="text">
+        <a class="sign_up" onclick="edit_text()">テキスト編集</a>
+
+        <hr>
+        <label>消したいid</label>
+        <input id="del_text" type="text">
+        <a class="sign_up" onclick="del_text()">テキスト消す</a>
+
+        <hr>
+        <label>フォロー中</label>
+        <div>
+            <ul id="your-follow"></ul>
+        </div>
+
+        <hr>
+        <label>フォロワー</label>
+        <div>
+            <ul id="your-follower"></ul>
+        </div>
+
+
+        <a class="sign_up" onclick="back_users()">もどる</a>
+
+        <a href="" onclick="logout(); return false;" class="logout_btn">logout</a>
+
+        <a class="sign_up bg-red white-color" onclick="del()">アカウント<br>けす</a>
     </div>
 
     <script src="../javascript/main.js"></script>
     <script>
+        if(localStorage.token) {
+            timeline();
+            get_follow();
+            get_follower();
+        }
         console.log(localStorage);
     </script>
 </body>
