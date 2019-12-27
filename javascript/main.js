@@ -59,7 +59,6 @@ function sign_up() {
 function login_user() {
     // Headersの用意
     const myHeaders = new Headers();
-    // Headersにjsonを読み込むものを挿入
     myHeaders.append("Content-Type", "application/json");
 
     const user_email = document.querySelector("#user_email").value;
@@ -115,7 +114,6 @@ function logout() {
 function get_users() {
     // Headersの用意
     const myHeaders = new Headers();
-    // Headersにjsonを読み込むものを挿入
     myHeaders.append("Content-Type", "application/json");
 
     // トークンがなかったらログイン画面に遷移
@@ -154,7 +152,6 @@ function get_users() {
 function edit() {
     // Headersの用意
     const myHeaders = new Headers();
-    // Headersにjsonを読み込むものを挿入
     myHeaders.append("Content-Type", "application/json");
 
     // トークンがなかったらログイン画面に遷移
@@ -204,7 +201,6 @@ function edit() {
 function del() {
     // Headersの用意
     const myHeaders = new Headers();
-    // Headersにjsonを読み込むものを挿入
     myHeaders.append("Content-Type", "application/json");
 
     // トークンがなかったらログイン画面に遷移
@@ -244,7 +240,6 @@ function del() {
 function new_text() {
     // Headersの用意
     const myHeaders = new Headers();
-    // Headersにjsonを読み込むものを挿入
     myHeaders.append("Content-Type", "application/json");
 
     const urlNewText = "https://teachapi.herokuapp.com/posts";
@@ -284,7 +279,6 @@ function new_text() {
 function timeline() {
     // Headersの用意
     const myHeaders = new Headers();
-    // Headersにjsonを読み込むものを挿入
     myHeaders.append("Content-Type", "application/json");
 
     // URL
@@ -316,7 +310,6 @@ function timeline() {
 function edit_text() {
     // Headersの用意
     const myHeaders = new Headers();
-    // Headersにjsonを読み込むものを挿入
     myHeaders.append("Content-Type", "application/json");
 
     const edit_text = document.querySelector("#edit_text").value;
@@ -358,7 +351,6 @@ function edit_text() {
 function del_text() {
     // Headersの用意
     const myHeaders = new Headers();
-    // Headersにjsonを読み込むものを挿入
     myHeaders.append("Content-Type", "application/json");
 
     const del_text = document.querySelector("#del_text").value;
@@ -386,7 +378,6 @@ function del_text() {
 function all_timeline() {
     // Headersの用意
     const myHeaders = new Headers();
-    // Headersにjsonを読み込むものを挿入
     myHeaders.append("Content-Type", "application/json");
 
     const urlAllTimeLine = "https://teachapi.herokuapp.com/posts"
@@ -422,10 +413,7 @@ function follow(id) {
     const url = `https://teachapi.herokuapp.com/users/${id}/follow`;
     // Headersの用意
     const myHeaders = new Headers();
-    // Headersにjsonを読み込むものを挿入
     myHeaders.append("Content-Type", "application/json");
-
-    //ログインしているユーザーのtokenを取得してヘッダーに格納する。
     myHeaders.append("Authorization", `Bearer ${localStorage.token}`);
 
 
@@ -445,9 +433,7 @@ function unfollow(id) {
 
     // Headersの用意
     const myHeaders = new Headers();
-    // Headersにjsonを読み込むものを挿入
     myHeaders.append("Content-Type", "application/json");
-    //ログインしているユーザーのtokenを取得してヘッダーに格納する。
     myHeaders.append("Authorization", `Bearer ${localStorage.token}`);
 
     const requestOptions = {
@@ -465,9 +451,7 @@ function get_follow() {
 
     // Headersの用意
     const myHeaders = new Headers();
-    // Headersにjsonを読み込むものを挿入
     myHeaders.append("Content-Type", "application/json");
-    //ログインしているユーザーのtokenを取得してヘッダーに格納する。
     myHeaders.append("Authorization", `Bearer ${localStorage.token}`);
 
     const requestOptions = {
@@ -517,9 +501,7 @@ function get_follower() {
 
     // Headersの用意
     const myHeaders = new Headers();
-    // Headersにjsonを読み込むものを挿入
     myHeaders.append("Content-Type", "application/json");
-    //ログインしているユーザーのtokenを取得してヘッダーに格納する。
     myHeaders.append("Authorization", `Bearer ${localStorage.token}`);
 
     const requestOptions = {
