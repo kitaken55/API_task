@@ -271,6 +271,7 @@ function new_text() {
     fetch(urlNewText, requestOptions)
     .then(response => response.json())
     .then(json => {
+        console.log(json);
         localStorage.text = `最新の投稿:${json.id}:${json.text}`;
         localStorage.posted_id = json.id;
         window.location.href = 'all_time_line.html';
@@ -373,7 +374,6 @@ function del_text() {
     fetch(urlDelText, requestOptions)
     .then(response => response.json())
     .then(json => {
-        console.log(json);
         localStorage.removeItem("text");
         window.location.href = 'edit_user.html';
     })
@@ -459,7 +459,7 @@ function unfollow(id) {
         .then(console.log("フォロー解除"));
 }
 
-// 13 フォロワー表示
+// 13 フォローしている人表示
 function get_follow() {
     const url = `https://teachapi.herokuapp.com/users/${localStorage.id}/followings`;
 
@@ -480,15 +480,32 @@ function get_follow() {
         .then(json => {
             let userText = "";
             json.forEach(element => {
-                userText += `<li class="user">
+                if (element.is_following === true) {
+                    userText += `<li class="user">
                                 <div class="user_element">
                                 ${element.name}
                                 </div>
                                 <div class="user_element">
-                                    <div class="sign_up margin_reset"><a onclick="unfollow(${element.id})">フォロー解除</a></div>
+                                    <div class="sign_up margin_reset">
+                                    <a onclick="unfollow(${element.id})">フォロー解除</a>
+                                    </div>
                                 </div>
                              </li>\n`;
+                } else if (element.is_following === false) {
+                    //すぐ反映できなければ意味ない↓
+                    userText += `<li class="user">
+                                <div class="user_element">
+                                ${element.name}
+                                </div>
+                                <div class="user_element">
+                                    <div class="sign_up margin_reset">
+                                    <a onclick="follow(${element.id})">フォローする</a>
+                                    </div>
+                                </div>
+                             </li>\n`;
+                }
             });
+
             document.querySelector('#your-follow').innerHTML = userText;
         })
         .catch(error => console.log(`Error: ${error}`));
@@ -515,11 +532,35 @@ function get_follower() {
         .then(json => {
             let userText = "";
             json.forEach(element => {
-                userText += `<li class="user">
+                // userText += `<li class="user">
+                //                 <div class="user_element">
+                //                 ${element.name}
+                //                 </div>
+                //              </li>\n`;
+                if (element.is_following === true) {
+                    userText += `<li class="user">
                                 <div class="user_element">
                                 ${element.name}
                                 </div>
+                                <div class="user_element">
+                                    <div class="sign_up margin_reset">
+                                    <a onclick="unfollow(${element.id})">フォロー解除</a>
+                                    </div>
+                                </div>
                              </li>\n`;
+                } else if (element.is_following === false) {
+                    //すぐ反映できなければ意味ない↓
+                    userText += `<li class="user">
+                                <div class="user_element">
+                                ${element.name}
+                                </div>
+                                <div class="user_element">
+                                    <div class="sign_up margin_reset">
+                                    <a onclick="follow(${element.id})">フォローする</a>
+                                    </div>
+                                </div>
+                             </li>\n`;
+                }
             });
             document.querySelector('#your-follower').innerHTML = userText;
         })
